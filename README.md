@@ -18,6 +18,10 @@ The two main config items you may be interested in are:
 * :feature-path (defaults to "features")
 * :step-path    (defaults to :feature-path)
 
+These can be supplied as simple bare-word pairs on the shell:
+
+> lein cucumis step-path special-features
+
 
 ### Project Setup
 
@@ -34,3 +38,10 @@ Copyright © 2014 FIXME
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
+
+
+## TODO
+
+Rename from Cucumis to something else. There seem to be enough projects called cucumis on github already...
+
+Possibly digicumber? ogorek?
