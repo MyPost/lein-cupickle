@@ -1,6 +1,6 @@
 # lein-cucumis
 
-lein-cucumis is a Leiningen plugin that uses the [Cucumis](Link-Pending)
+lein-cucumis is a Leiningen plugin that uses the [Cucumis](https://github.com/MyPost/cucumis)
 library to run a set of cucumber features against a set of step definitions.
 
 
