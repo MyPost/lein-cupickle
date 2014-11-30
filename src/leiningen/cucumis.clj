@@ -4,14 +4,18 @@
   )
 
 (defn run-cucumis [project {:keys [] :as arg-map}]
-  ;
-  ; NOTE: Binding introduced so that cucumis can print using the lein tools,
-  ;       As required by the lein plugin documentation.
-  ;
-  (binding [c/cuc-print leiningen.core.main/info]
-    (apply c/main (apply concat
-                         (seq (merge (:cucumis project)
-                                     (clojure.walk/keywordize-keys arg-map)))))))
+
+  (apply c/main (apply concat
+                       (seq (merge (:cucumis project)
+                                   (clojure.walk/keywordize-keys arg-map))))))
+
+(defn is-help [arg]
+  (or (= arg "help")
+      (= arg "--help")
+      (= arg "-h")))
+
+(defn asking-for-help? [args]
+  (< 0 (count (filter is-help args))))
 
 (defn cucumis
   "
@@ -21,10 +25,18 @@
   "
   [project & args]
 
-  (let [results (run-cucumis project args)
-        errors  (filter #(= :error (:type %)) results)]
-    (if-not (empty? errors)
-      (l/abort "Some cucumis tests failed.")))
+  ; NOTE: Binding introduced so that cucumis can print using the lein tools,
+  ;       As required by the lein plugin documentation.
+  ;
+  (binding [c/cuc-print leiningen.core.main/info]
+    (if (asking-for-help? args)
+      (c/help)
+      (let [results (run-cucumis project args)
+            errors  (filter #(= :error (:type %)) results)]
+        (if-not (empty? errors)
+          (l/abort "Some cucumis tests failed.")))))
+
+
 
   ; TODO: Decide if we should use this:
   ; (leiningen.core.eval/eval-in-project)
