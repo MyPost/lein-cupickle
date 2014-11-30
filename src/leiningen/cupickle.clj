@@ -1,6 +1,6 @@
-(ns leiningen.cupickle  (:require [cupickle.core        :as c]
-                                 [leiningen.core.eval :as e]
-                                 [leiningen.core.main :as l])
+(ns leiningen.cupickle  (:require [cupickle.core       :as c]
+                                  [leiningen.core.eval :as e]
+                                  [leiningen.core.main :as l])
   )
 
 (defn run-cupickle [project {:keys [] :as arg-map}]
