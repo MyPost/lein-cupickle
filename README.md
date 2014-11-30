@@ -44,4 +44,16 @@ your option) any later version.
 
 Rename from Cucumis to something else. There seem to be enough projects called cucumis on github already...
 
-Possibly digicumber? ogorek?
+Possibly
+
+* digicumber
+* ogorek
+* shoecumber
+* cuksey
+* cumberparty
+* beautyfruit - <https://www.flickr.com/photos/activesteve/5985975169/in/photolist-6zbaEG-6TVRiA-an4mSp-6HrPwi-aLPHpZ-8tHRKx-dtSDPo-dtSDAh-dtSDV5-7214Cu-a7XFSr-evSzvf-evPrKz-71W4Je-8v1eaS-HdPFv-8LdPU8-h8fDyH-cgsE61-abjaoH-6cybna-dtM6k2-dtSDv1-dtM6aT-dtM6Cv-dtM6v2-dtSDmq-dtSDxu-dtSDGU-dtM6h8-dtM6HR-71W4Qg-6o268F-A25Ua-72154b-7qvW8q-9csHFc-9MKumx-9MKtWz-9MNgxm-avnVEh-7ZZ8QB-b9Vu1B-71W4VR-dpfAJu-dpfrAM-dpfrQD-d38Rvs-d38Txm-4wMcJK>
+* eyeslice
+* roundeye
+* greeneye
+* fruiteye
+* cuxi, cuxy
