@@ -31,9 +31,14 @@ These can be supplied as simple bare-word pairs on the shell:
 
 Use this for project-level plugins:
 
-Put `[lein-cupickle "0.1.0-SNAPSHOT"]` into the `:plugins` vector of your project.clj.
+Put `[au.com.auspost/lein-cupickle "0.1.0-SNAPSHOT"]` into the `:plugins` vector of your project.clj.
 
-Put `[cupickle "0.1.0-SNAPSHOT"]` into the `:dependencies` vector of your project.clj.
+Put `[au.com.auspost/cupickle "0.1.0-SNAPSHOT"]` into the `:dependencies`
+vector of your project.clj if you are going to trigger cucumber test-runs from
+within your code. This is not required if you only plan to trigger testing with
+lein-cupickle.
+
+Put `(:require [cupickle.steps :as cps])` into your namespace that is going to define steps.
 
 
 ## License
