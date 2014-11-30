@@ -18,11 +18,7 @@
   (< 0 (count (filter is-help args))))
 
 (defn cupickle
-  "
-  Kicks off the cucumber test-run.
-
-  Arguments are key-value pairs determined by the cupickle library.
-  "
+  "Run cucumber tests."
   [project & args]
 
   ; NOTE: Binding introduced so that cupickle can print using the lein tools,
