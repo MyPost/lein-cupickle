@@ -45,13 +45,10 @@ Put `(:require [cupickle.steps :as cps])` into your namespace that is going to d
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Australia Post
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
-
+Distributed under the Apache License v2.0
 
 ## TODO
 
-* License
 * Publish to clojars
