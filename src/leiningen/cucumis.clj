@@ -21,8 +21,9 @@
   "
   [project & args]
 
-  (let [result (run-cucumis project args)]
-    (if true
+  (let [results (run-cucumis project args)
+        errors  (filter #(= :error (:type %)) results)]
+    (if-not (empty? errors)
       (l/abort "Some cucumis tests failed.")))
 
   ; TODO: Decide if we should use this:
