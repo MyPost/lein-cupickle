@@ -1,5 +1,7 @@
 # lein-cupickle
 
+![A Pickle in a Cubicle](http://i.imgur.com/Ost19IX.png)
+
 lein-cupickle is a Leiningen plugin that uses the [Cupickle](https://github.com/MyPost/cupickle)
 library to run a set of cucumber features against a set of step definitions.
 
@@ -52,4 +54,4 @@ your option) any later version.
 ## TODO
 
 * License
-* Print dots without newlines for progress
+* Publish to clojars
