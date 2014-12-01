@@ -43,6 +43,57 @@ lein-cupickle.
 Put `(:require [cupickle.steps :as cps])` into your namespace that is going to define steps.
 
 
+### Example Feature
+
+An example feature `unlock-grooved-cable.feature`:
+
+		Feature: Unlock grooved cable
+			@pre-unlock-cable
+			Scenario: Unlocked grooved cable unlocked
+				Given a grooved cable that is unlocked
+				And the state of the cable is
+				"""
+				Dangerous
+				"""
+				When the pilot trys to unlock the grooved cable
+				Then an error is raised
+				"
+				Grooved cable already unlocked!
+				"
+				And response :no-change is returned
+
+			Scenario: Locked grooved cable unlocked
+				Given a grooved cable that is locked
+				When the pilot trys to unlock the grooved cable
+				Then the state of the cable becomes
+				"""
+				Unlocked
+				"""
+				And a response :unlocked is returned
+
+### Example step definition
+
+An example step definition `grooved-cable-steps`:
+
+		; The namespace should match the file-path with the step-path prefix removed
+		(ns grooved-cable-steps
+			(:require [cupickle.steps :refer :all]))
+
+		; This is how you define a custom function without using the cupickle.steps macros
+		(defn
+			^{:cupickle-pattern #"Special case pattern .*"}
+			foo-step [& x]
+			(prn "Inside step-definition foo-step " x)
+			(assert (re-matches #".*auth.*" (first x))))
+
+		; Macros are available for the regular cucumber steps
+		(Given #"a grooved cable that is (locked|unlocked)" [state]
+					(assert (= state "Dangerous")))
+
+		(Then #"the state.*" [& whatever]
+					(prn "Inside Then step " whatever))
+
+
 ## License
 
 Copyright © 2014 Australia Post
