@@ -12,7 +12,9 @@
 
      (if errors#
        ; TODO: Find out if there is a better way to generate an error... 
-       (System/exit 1))))
+       (System/exit 1)
+       (System/exit 0)
+       )))
 
 (defn is-help [arg]
   (or (= arg "help")
@@ -31,6 +33,7 @@
     (let [profile {:dependencies [['au.com.auspost/cupickle "0.2.0"] ]}
           project (p/merge-profiles project [profile])
           config  (:cupickle project)
-          errors? (e/eval-in-project project
-                                     (run-cupickle config args)
-                                     '(do (require 'cupickle.core)))])))
+          ]
+      (e/eval-in-project project (run-cupickle config args)
+                                '(require 'cupickle.core))
+      (l/exit))))
