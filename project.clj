@@ -1,4 +1,4 @@
-(defproject au.com.auspost/lein-cupickle "0.3.0"
+(defproject au.com.auspost/lein-cupickle "0.4.0"
   :description "A lein plugin to run cucumber tests based on the cupickle library."
   :dependencies [[au.com.auspost/cupickle "0.2.0"]]
   :url "https://github.com/MyPost/lein-cupickle"
