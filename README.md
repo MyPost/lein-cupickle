@@ -104,3 +104,5 @@ Distributed under the Apache License v2.0
 
 * Consider switching back from bultitude to tools.namespace
 * Make sure that cupickle loads required dependencies
+* Automatically translate "And" steps to their previous step prefix
+* Make statistics tally not interpret annotations as steps
