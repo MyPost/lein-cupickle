@@ -102,4 +102,5 @@ Distributed under the Apache License v2.0
 
 ## TODO
 
-* Publish to clojars
+* Consider switching back from bultitude to tools.namespace
+* Make sure that cupickle loads required dependencies

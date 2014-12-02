@@ -1,13 +1,18 @@
-(ns leiningen.cupickle  (:require [cupickle.core       :as c]
-                                  [leiningen.core.eval :as e]
-                                  [leiningen.core.main :as l])
-  )
+(ns leiningen.cupickle  (:require [cupickle.core            :as c]
+                                  [leiningen.core.eval      :as e]
+                                  [leiningen.core.project   :as p]
+                                  [leiningen.core.main      :as l]))
 
-(defn run-cupickle [project {:keys [] :as arg-map}]
+(defn run-cupickle [config {:keys [] :as arg-map}]
+  `(let [result# (apply cupickle.core/main
+                       (apply concat
+                              (seq (merge ~config
+                                          (clojure.walk/keywordize-keys ~arg-map)))))
+         errors# (not (empty? (filter #(= :error (:type %)) result#))) ]
 
-  (apply c/main (apply concat
-                       (seq (merge (:cupickle project)
-                                   (clojure.walk/keywordize-keys arg-map))))))
+     (if errors#
+       ; TODO: Find out if there is a better way to generate an error... 
+       (System/exit 1))))
 
 (defn is-help [arg]
   (or (= arg "help")
@@ -21,26 +26,11 @@
   "Run cucumber tests."
   [project & args]
 
-  ; NOTE: Binding introduced so that cupickle can print using the lein tools,
-  ;       As required by the lein plugin documentation.
-  ;
-  (binding [c/cuc-print leiningen.core.main/info]
-    (if (asking-for-help? args)
-      (c/help)
-      (let [results (run-cupickle project args)
-            errors  (filter #(= :error (:type %)) results)]
-        (if-not (empty? errors)
-          (l/abort "Some cupickle tests failed.")))))
-
-
-
-  ; TODO: Decide if we should use this:
-  ; (leiningen.core.eval/eval-in-project)
-)
-
-
-; Manual tests...
-(comment
-  (cupickle {:cupickle {:lol :haha}})
-  (cupickle {:cupickle {:lol :haha}} :asdf :qwer)
-)
+  (if (asking-for-help? args)
+    (c/help)
+    (let [profile {:dependencies [['au.com.auspost/cupickle "0.2.0"] ]}
+          project (p/merge-profiles project [profile])
+          config  (:cupickle project)
+          errors? (e/eval-in-project project
+                                     (run-cupickle config args)
+                                     '(do (require 'cupickle.core)))])))
