@@ -33,7 +33,7 @@ These can be supplied as simple bare-word pairs on the shell:
 
 Use this for project-level plugins:
 
-Put `[au.com.auspost/lein-cupickle "0.3.0"]` into the `:plugins` vector of your project.clj.
+Put `[au.com.auspost/lein-cupickle "0.4.0"]` into the `:plugins` vector of your project.clj.
 
 Put `[au.com.auspost/cupickle "0.2.0"]` into the `:dependencies`
 vector of your project.clj if you are going to trigger cucumber test-runs from
