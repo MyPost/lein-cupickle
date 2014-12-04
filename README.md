@@ -116,3 +116,4 @@ Distributed under the Apache License v2.0
 * Make sure that cupickle loads required dependencies
 * Automatically translate "And", "But" steps to their previous step prefix
 * Make statistics tally not interpret annotations as steps
+* Test directly nested annotations
