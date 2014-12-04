@@ -93,6 +93,15 @@ An example step definition `grooved-cable-steps`:
 		(Then #"the state.*" [& whatever]
 					(prn "Inside Then step " whatever))
 
+## Testing
+
+![Build Status](https://travis-ci.org/MyPost/lein-cupickle.svg)
+
+There really isn't much to test for the lein plugin as it simply delegates everything to
+the main Cupickle library...
+
+However, dependency resolution is tested in [Travis-CI.](https://travis-ci.org/MyPost)
+
 
 ## License
 
