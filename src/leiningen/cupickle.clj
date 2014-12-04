@@ -1,5 +1,4 @@
-(ns leiningen.cupickle  (:require [cupickle.core            :as c]
-                                  [leiningen.core.eval      :as e]
+(ns leiningen.cupickle  (:require [leiningen.core.eval      :as e]
                                   [leiningen.core.project   :as p]
                                   [leiningen.core.main      :as l]))
 
@@ -27,13 +26,14 @@
 (defn cupickle
   "Run cucumber tests."
   [project & args]
+  (let [profile {:dependencies [['au.com.auspost/cupickle "0.2.0"] ]}
+        project (p/merge-profiles project [profile])
+        config  (:cupickle project)
+        ]
+    (e/eval-in-project project
+                       (if (asking-for-help? args)
+                         '(cupickle.core/help)
+                         (run-cupickle config args))
 
-  (if (asking-for-help? args)
-    (c/help)
-    (let [profile {:dependencies [['au.com.auspost/cupickle "0.2.0"] ]}
-          project (p/merge-profiles project [profile])
-          config  (:cupickle project)
-          ]
-      (e/eval-in-project project (run-cupickle config args)
-                                '(require 'cupickle.core))
-      (l/exit))))
+                       '(require 'cupickle.core))
+    (l/exit)))

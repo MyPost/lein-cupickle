@@ -117,6 +117,5 @@ Distributed under the Apache License v2.0
 * Automatically translate "And", "But" steps to their previous step prefix
 * Make statistics tally not interpret annotations as steps
 * Test directly nested annotations
-* Remove the dependency on cupickle from lein-cupickle as this dependency is injected into your project
-* Trigger cupickle help from eval-in-project
 * Allow cupickle profile to be specified in project
+* Publish to clojars from travis-ci
