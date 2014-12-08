@@ -100,7 +100,7 @@ An example step definition `grooved-cable-steps`:
 There really isn't much to test for the lein plugin as it simply delegates everything to
 the main Cupickle library...
 
-However, dependency resolution is tested in [Travis-CI.](https://travis-ci.org/MyPost)
+However, dependency resolution is tested in [Travis-CI.](https://travis-ci.org/MyPost/lein-cupickle)
 
 
 ## License
