@@ -26,7 +26,7 @@
 (defn cupickle
   "Run cucumber tests."
   [project & args]
-  (let [profile {:dependencies [['au.com.auspost/cupickle "0.2.0"] ]}
+  (let [profile {:dependencies [['au.com.auspost/cupickle "0.3.0"] ]}
         project (p/merge-profiles project [profile])
         config  (:cupickle project)
         ]
